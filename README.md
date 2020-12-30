@@ -3,6 +3,8 @@ A Minecraft Forge mod to disable existing ore generation features and add your o
 
 Supports Minecraft 1.16.4.
 
+Download on CurseForge: https://www.curseforge.com/minecraft/mc-mods/oretweaker
+
 ## Configuration
 
 All configuration for this mod is stored in `config/oretweaker-common.toml`.
