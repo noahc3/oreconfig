@@ -1,5 +1,6 @@
 package com.noahc3.oretweaker.config;
 
+import com.noahc3.oretweaker.utility.Logger;
 import com.noahc3.oretweaker.world.Features;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
@@ -21,7 +22,7 @@ public class Config {
             customOres = new ArrayList<>();
 
             for(String k : ConfigSpec.COMMON.disableOres.get()) {
-                ForgeRegistries.BLOCKS.getValue(new ResourceLocation(k));
+                disabledOres.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(k)));
             }
 
             customOres.addAll(ConfigSpec.oreConfigs.customOres);
@@ -31,6 +32,4 @@ public class Config {
             configLocked = true;
         }
     }
-
-
 }
