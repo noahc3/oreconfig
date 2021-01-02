@@ -3,7 +3,9 @@ package com.noahc3.oretweaker.config;
 import com.electronwill.nightconfig.core.conversion.Path;
 import com.electronwill.nightconfig.core.conversion.PreserveNotNull;
 import com.electronwill.nightconfig.core.conversion.SpecIntInRange;
+import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
@@ -18,11 +20,15 @@ public class CustomOreConfig {
 
         @Path("Filler Name")
         @PreserveNotNull
-        public String fillerName;
+        public String fillerName = "minecraft:stone";
 
         @Path("Max Vein Size")
         @SpecIntInRange(min = 0, max = 64)
         public int maxVeinSize;
+
+        @Path("Min Vein Level")
+        @SpecIntInRange(min = 1, max = 256)
+        public int minVeinLevel = 0;
 
         @Path("Max Vein Level")
         @SpecIntInRange(min = 1, max = 256)
@@ -42,6 +48,14 @@ public class CustomOreConfig {
 
         public ResourceLocation getFillerRegistryName() {
             return new ResourceLocation(fillerName);
+        }
+
+        public Block getOre() {
+            return ForgeRegistries.BLOCKS.getValue(getOreRegistryName());
+        }
+
+        public Block getFiller() {
+            return ForgeRegistries.BLOCKS.getValue(getFillerRegistryName());
         }
 
         @Override
