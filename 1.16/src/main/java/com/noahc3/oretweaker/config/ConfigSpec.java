@@ -30,7 +30,7 @@ public class ConfigSpec {
 
 
         public Common(ForgeConfigSpec.Builder BUILDER) {
-            disableOres = BUILDER.defineList("Disable Ores", new ArrayList<>(), null);
+            disableOres = BUILDER.defineList("Disable Ores", new ArrayList<>(), Objects::nonNull);
             BUILDER.define("Custom Ore", new ArrayList<>());
         }
     }
