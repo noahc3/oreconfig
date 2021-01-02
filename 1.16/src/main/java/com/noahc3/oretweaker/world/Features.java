@@ -24,7 +24,7 @@ public class Features {
             CustomOreConfig.CustomOre k = Config.customOres.get(i);
 
             registeredOres.add(
-                    register("custom_oregen_" + i, buildOreFeature(k.getOre(), k.getFiller(), k.maxVeinSize, k.minVeinLevel, k.maxVeinLevel, k.spawnRate))
+                    register("custom_oregen_" + i, buildOreFeature(k.getOre(), k.getFiller(), k.maxVeinSize + 1, k.minVeinLevel, k.maxVeinLevel, k.spawnRate))
             );
 
         }

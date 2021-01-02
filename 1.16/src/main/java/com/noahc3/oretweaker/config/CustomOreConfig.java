@@ -23,7 +23,7 @@ public class CustomOreConfig {
         public String fillerName = "minecraft:stone";
 
         @Path("Max Vein Size")
-        @SpecIntInRange(min = 0, max = 64)
+        @SpecIntInRange(min = 1, max = 63)
         public int maxVeinSize;
 
         @Path("Min Vein Level")
