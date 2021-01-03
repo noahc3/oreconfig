@@ -140,3 +140,9 @@ The following configuration:
 has fun effects in amplified world types:
 
 ![](https://i.imgur.com/Ecf1mTY.png)
+
+By setting the filler block to netherrack or basalt, you can generate ore in the Nether:
+
+![](https://i.imgur.com/tGPdieQ.png)
+
+a similar result can be achieved in the End by setting the filler block to end stone.
