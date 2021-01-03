@@ -33,6 +33,7 @@ Before defining new ores, if you don't want vanilla ore generation to also take 
     - **Ore Name**: The block ID to use as the ore (ex. minecraft:iron_ore).
     - **Filler Name**: The block ID to replace in the world (ex. minecraft:stone).
     - **Max Vein Size**: The maximum vein sizes to create (0-64).
+    - **Min Vein Level**: The minimum y-level to try spawning veins at (1-256).
     - **Max Vein Level**: The maximum y-level to try spawning veins at (1-256).
     - **Spawn Rate**: The vein spawn frequency (-10-128) (I have no idea what negative values do but they are specified as accepted by the game).
     
@@ -44,6 +45,7 @@ Below "Disable Ores", define a "Custom Ore" block for each custom ore generation
 	"Ore Name" = "minecraft:coal_ore"
     "Filler Name" = "minecraft:stone"
 	"Max Vein Size" = 48
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -51,6 +53,7 @@ Below "Disable Ores", define a "Custom Ore" block for each custom ore generation
 	"Ore Name" = "minecraft:iron_ore"
     "Filler Name" = "minecraft:stone"
 	"Max Vein Size" = 48
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
     
@@ -58,6 +61,7 @@ Below "Disable Ores", define a "Custom Ore" block for each custom ore generation
 	"Ore Name" = "minecraft:gold_ore"
     "Filler Name" = "minecraft:stone"
 	"Max Vein Size" = 48
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 ```
@@ -80,6 +84,7 @@ The following configuration:
 	"Ore Name" = "minecraft:coal_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -87,6 +92,7 @@ The following configuration:
 	"Ore Name" = "minecraft:iron_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -94,6 +100,7 @@ The following configuration:
 	"Ore Name" = "minecraft:gold_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -101,6 +108,7 @@ The following configuration:
 	"Ore Name" = "minecraft:redstone_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -108,6 +116,7 @@ The following configuration:
 	"Ore Name" = "minecraft:diamond_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -115,6 +124,7 @@ The following configuration:
 	"Ore Name" = "minecraft:lapis_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -122,6 +132,7 @@ The following configuration:
 	"Ore Name" = "minecraft:emerald_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 ```
