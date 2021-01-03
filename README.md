@@ -15,7 +15,7 @@ All configuration for this mod is stored in `config/oretweaker-common.toml`.
 
 - **Disable Ores**: a string array of blocks to remove ore generation features for.
 
-The "Disable Ores" array is a string array which stores a list of blocks to disable ore generation for. For example, to disable all ore generation for valuable overworld ores in vanilla Minecraft:
+The "Disable Ores" array is a string array which stores a list of blocks to disable existing (non-custom) ore generation for. For example, to disable all ore generation for valuable overworld ores in vanilla Minecraft:
 
 `"Disable Ores" = ["minecraft:coal_ore", "minecraft:iron_ore", "minecraft:gold_ore", "minecraft:redstone_ore", "minecraft:diamond_ore", "minecraft:lapis_ore", "minecraft:emerald_ore"]`
 
@@ -23,7 +23,11 @@ Note things like andesite, diorite, granite, as well as underground dirt and gra
 
 This can also disable ore generation for modded ores, provided those mods use the standard OreFeature or ReplaceBlockFeature world generation features for their ore generation. Simply supply the ID of the modded ore blocks to disable.
 
+This option only disables ore generation not configured by this mod (ex. vanilla/modded ore generation). If you want to define a custom ore that "overrides" the existing ore generation, you need to disable the existing ore generation here first.
+
 #### Custom Ore Generation
+
+Before defining new ores, if you don't want vanilla ore generation to also take place, make sure you disable the ore before defining custom generation for that ore. Otherwise, both your custom generation and the vanilla ore generation will occur.
 
 - **\[\["Custom Ore"\]\]**
     - **Ore Name**: The block ID to use as the ore (ex. minecraft:iron_ore).
