@@ -83,7 +83,7 @@ The following is some default settings for vanilla ore generation for each ore:
 | ORE_GOLD     | 1               | 32              | 8             | 2                        |
 | ORE_REDSTONE | 1               | 16              | 7             | 8                        |
 | ORE_DIAMOND  | 1               | 16              | 7             | 1                        |
-| ORE_LAPIS    | 1               | 30              | 6             | N/A, [normal distribution](https://github.com/noahc3/oretweaker/blob/master/README.md#default-values) |
+| ORE_LAPIS    | 1               | 30              | 6             | N/A, [normal distribution](https://minecraft.gamepedia.com/Lapis_Lazuli_Ore) |
 
 Emerald ore is not generated with typical ore generation, however you can replicate the effect with very low spawn rate and a vein size of 1.
 
