@@ -72,8 +72,23 @@ You can replace things other than stone, like dirt or grass. These configuration
 
 You can create ore generation for blocks that aren't normally ores, like iron blocks, logs, crafting tables, as well as modded blocks. Just supply the correct block ID for the "Ore Name" field.
 
+## Default Values
 
-#### Example Configuration
+The following is some default settings for vanilla ore generation for each ore:
+
+| Ore          | Min Vein Height | Max Vein Height | Max Vein Size | Spawn Rate               |
+|--------------|-----------------|-----------------|---------------|--------------------------|
+| ORE_COAL     | 1               | 128             | 16            | 20                       |
+| ORE_IRON     | 1               | 64              | 8             | 20                       |
+| ORE_GOLD     | 1               | 32              | 8             | 2                        |
+| ORE_REDSTONE | 1               | 16              | 7             | 8                        |
+| ORE_DIAMOND  | 1               | 16              | 7             | 1                        |
+| ORE_LAPIS    | 1               | 30              | 6             | N/A, normal distribution |
+
+Emerald ore is not generated with typical ore generation, however you can replicate the effect with very low spawn rate and a vein size of 1.
+
+
+## Example Configuration
 
 The following configuration:
 
