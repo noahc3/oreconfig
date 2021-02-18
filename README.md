@@ -15,7 +15,7 @@ All configuration for this mod is stored in `config/oretweaker-common.toml`.
 
 - **Disable Ores**: a string array of blocks to remove ore generation features for.
 
-The "Disable Ores" array is a string array which stores a list of blocks to disable ore generation for. For example, to disable all ore generation for valuable overworld ores in vanilla Minecraft:
+The "Disable Ores" array is a string array which stores a list of blocks to disable existing (non-custom) ore generation for. For example, to disable all ore generation for valuable overworld ores in vanilla Minecraft:
 
 `"Disable Ores" = ["minecraft:coal_ore", "minecraft:iron_ore", "minecraft:gold_ore", "minecraft:redstone_ore", "minecraft:diamond_ore", "minecraft:lapis_ore", "minecraft:emerald_ore"]`
 
@@ -23,12 +23,17 @@ Note things like andesite, diorite, granite, as well as underground dirt and gra
 
 This can also disable ore generation for modded ores, provided those mods use the standard OreFeature or ReplaceBlockFeature world generation features for their ore generation. Simply supply the ID of the modded ore blocks to disable.
 
+This option only disables ore generation not configured by this mod (ex. vanilla/modded ore generation). If you want to define a custom ore that "overrides" the existing ore generation, you need to disable the existing ore generation here first.
+
 #### Custom Ore Generation
+
+Before defining new ores, if you don't want vanilla ore generation to also take place, make sure you disable the ore before defining custom generation for that ore. Otherwise, both your custom generation and the vanilla ore generation will occur.
 
 - **\[\["Custom Ore"\]\]**
     - **Ore Name**: The block ID to use as the ore (ex. minecraft:iron_ore).
     - **Filler Name**: The block ID to replace in the world (ex. minecraft:stone).
     - **Max Vein Size**: The maximum vein sizes to create (0-64).
+    - **Min Vein Level**: The minimum y-level to try spawning veins at (1-256).
     - **Max Vein Level**: The maximum y-level to try spawning veins at (1-256).
     - **Spawn Rate**: The vein spawn frequency (-10-128) (I have no idea what negative values do but they are specified as accepted by the game).
     
@@ -40,6 +45,7 @@ Below "Disable Ores", define a "Custom Ore" block for each custom ore generation
 	"Ore Name" = "minecraft:coal_ore"
     "Filler Name" = "minecraft:stone"
 	"Max Vein Size" = 48
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -47,6 +53,7 @@ Below "Disable Ores", define a "Custom Ore" block for each custom ore generation
 	"Ore Name" = "minecraft:iron_ore"
     "Filler Name" = "minecraft:stone"
 	"Max Vein Size" = 48
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
     
@@ -54,6 +61,7 @@ Below "Disable Ores", define a "Custom Ore" block for each custom ore generation
 	"Ore Name" = "minecraft:gold_ore"
     "Filler Name" = "minecraft:stone"
 	"Max Vein Size" = 48
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 ```
@@ -64,8 +72,23 @@ You can replace things other than stone, like dirt or grass. These configuration
 
 You can create ore generation for blocks that aren't normally ores, like iron blocks, logs, crafting tables, as well as modded blocks. Just supply the correct block ID for the "Ore Name" field.
 
+## Default Values
 
-#### Example Configuration
+The following is some default settings for vanilla ore generation for each ore:
+
+| Ore          | Min Vein Height | Max Vein Height | Max Vein Size | Spawn Rate               |
+|--------------|-----------------|-----------------|---------------|--------------------------|
+| ORE_COAL     | 1               | 128             | 16            | 20                       |
+| ORE_IRON     | 1               | 64              | 8             | 20                       |
+| ORE_GOLD     | 1               | 32              | 8             | 2                        |
+| ORE_REDSTONE | 1               | 16              | 7             | 8                        |
+| ORE_DIAMOND  | 1               | 16              | 7             | 1                        |
+| ORE_LAPIS    | 1               | 30              | 6             | N/A, [normal distribution](https://minecraft.gamepedia.com/Lapis_Lazuli_Ore) |
+
+Emerald ore is not generated with typical ore generation, however you can replicate the effect with very low spawn rate and a vein size of 1.
+
+
+## Example Configuration
 
 The following configuration:
 
@@ -76,6 +99,7 @@ The following configuration:
 	"Ore Name" = "minecraft:coal_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -83,6 +107,7 @@ The following configuration:
 	"Ore Name" = "minecraft:iron_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -90,6 +115,7 @@ The following configuration:
 	"Ore Name" = "minecraft:gold_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -97,6 +123,7 @@ The following configuration:
 	"Ore Name" = "minecraft:redstone_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -104,6 +131,7 @@ The following configuration:
 	"Ore Name" = "minecraft:diamond_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -111,6 +139,7 @@ The following configuration:
 	"Ore Name" = "minecraft:lapis_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 
@@ -118,6 +147,7 @@ The following configuration:
 	"Ore Name" = "minecraft:emerald_ore"
 	"Max Vein Size" = 48
 	"Filler Name" = "minecraft:stone"
+	"Min Vein Level" = 1
 	"Max Vein Level" = 256
 	"Spawn Rate" = 48
 ```
@@ -125,3 +155,9 @@ The following configuration:
 has fun effects in amplified world types:
 
 ![](https://i.imgur.com/Ecf1mTY.png)
+
+By setting the filler block to netherrack or basalt, you can generate ore in the Nether:
+
+![](https://i.imgur.com/tGPdieQ.png)
+
+a similar result can be achieved in the End by setting the filler block to end stone.
