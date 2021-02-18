@@ -2,6 +2,8 @@ package com.noahc3.oretweaker.intercepts;
 
 import com.noahc3.oretweaker.config.Config;
 import com.noahc3.oretweaker.world.Features;
+import com.noahc3.oretweaker.utility.Logger;
+import net.minecraft.block.Block;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
@@ -19,21 +21,27 @@ public class BiomeIntercept {
         BiomeGenerationSettingsBuilder gen = event.getGeneration();
         ArrayList<Supplier<ConfiguredFeature<?, ?>>> flagged = new ArrayList<>();
         List<Supplier<ConfiguredFeature<?, ?>>> oreFeatures = gen.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES);
+        Block blockCheck = null;
 
         for(Supplier<ConfiguredFeature<?, ?>> f : oreFeatures) {
             ConfiguredFeature<?, ?> resolved = resolve(f.get());
             if (resolved.feature instanceof OreFeature) {
                 //most ores
                 OreFeatureConfig config = (OreFeatureConfig) resolved.config;
-                if (Config.disabledOres.contains(config.state.getBlock())) {
-                    flagged.add(f);
-                }
+                blockCheck = config.state.getBlock();
             } else if (resolved.feature instanceof ReplaceBlockFeature) {
                 //emeralds are special
                 ReplaceBlockConfig config = (ReplaceBlockConfig) resolved.config;
-                if (Config.disabledOres.contains(config.state.getBlock())) {
+                blockCheck = config.state.getBlock();
+            }
+
+            if (blockCheck != null) {
+                if (Config.debugOutput) Logger.debug("Intercepted oregen for " + blockCheck.getRegistryName());
+                if (Config.disabledOres.contains(blockCheck)) {
                     flagged.add(f);
+                    if (Config.debugOutput) Logger.debug("    Flagged for removal");
                 }
+
             }
         }
 

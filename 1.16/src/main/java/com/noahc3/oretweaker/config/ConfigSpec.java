@@ -26,10 +26,12 @@ public class ConfigSpec {
     public static CustomOreConfig oreConfigs;
 
     public static class Common {
+        public final ForgeConfigSpec.BooleanValue debugOutput;
         public final ForgeConfigSpec.ConfigValue<List<? extends String>> disableOres;
 
 
         public Common(ForgeConfigSpec.Builder BUILDER) {
+            debugOutput = BUILDER.define("Enable Debug Output", false);
             disableOres = BUILDER.defineList("Disable Ores", new ArrayList<>(), Objects::nonNull);
             BUILDER.define("Custom Ore", new ArrayList<>());
         }

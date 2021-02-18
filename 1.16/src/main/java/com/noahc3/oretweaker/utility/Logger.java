@@ -14,4 +14,7 @@ public class Logger {
     public static void info(Object object) {
         log(Level.INFO, object);
     }
+    public static void debug(Object object) {
+        log(Level.DEBUG, object);
+    }
 }

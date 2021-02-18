@@ -2,6 +2,7 @@ package com.noahc3.oretweaker.world;
 
 import com.noahc3.oretweaker.config.Config;
 import com.noahc3.oretweaker.config.CustomOreConfig;
+import com.noahc3.oretweaker.utility.Logger;
 import com.noahc3.oretweaker.utility.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.util.registry.Registry;
@@ -27,6 +28,9 @@ public class Features {
                     register("custom_oregen_" + i, buildOreFeature(k.getOre(), k.getFiller(), k.maxVeinSize + 1, k.minVeinLevel, k.maxVeinLevel, k.spawnRate))
             );
 
+            if (Config.debugOutput) {
+                Logger.debug("Registered custom oregen 'custom_oregen_" + i + "' from " + k.getOreRegistryName() + "/" + k.getFillerRegistryName());
+            }
         }
     }
 
