@@ -45,7 +45,7 @@ public class BiomeIntercept {
 
         for(Supplier<ConfiguredFeature<?, ?>> f : features) {
             ConfiguredFeature<?, ?> resolved = resolve(f.get());
-            if (resolved.feature instanceof OreFeature) {
+            if (resolved.feature instanceof OreFeature || resolved.feature instanceof NoExposedOreFeature) {
                 //most ores
                 OreFeatureConfig config = (OreFeatureConfig) resolved.config;
                 blockCheck = config.state.getBlock();
