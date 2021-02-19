@@ -20,11 +20,30 @@ public class BiomeIntercept {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void BiomeLoadingIntercept(final BiomeLoadingEvent event) {
         BiomeGenerationSettingsBuilder gen = event.getGeneration();
-        ArrayList<Supplier<ConfiguredFeature<?, ?>>> flagged = new ArrayList<>();
-        List<Supplier<ConfiguredFeature<?, ?>>> oreFeatures = gen.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES);
-        Block blockCheck = null;
 
-        for(Supplier<ConfiguredFeature<?, ?>> f : oreFeatures) {
+        scrubFeatureList(gen.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES)); //most ores
+        scrubFeatureList(gen.getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)); //nether ores
+
+        for (ConfiguredFeature<?, ?> f : Features.registeredOres) {
+            gen = (BiomeGenerationSettingsBuilder) gen.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, f);
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void FMLServerStartedIntercept(FMLServerStartedEvent event) {
+        if (Config.debugOutput && Config.trackedDisabledOres.size() > 0) {
+            Logger.debug("The following ores could not be intercepted:");
+            for(Block k : Config.trackedDisabledOres) {
+                Logger.debug("    " + k.getRegistryName());
+            }
+        }
+    }
+
+    private static void scrubFeatureList(List<Supplier<ConfiguredFeature<?, ?>>> features) {
+        Block blockCheck = null;
+        ArrayList<Supplier<ConfiguredFeature<?, ?>>> flagged = new ArrayList<>();
+
+        for(Supplier<ConfiguredFeature<?, ?>> f : features) {
             ConfiguredFeature<?, ?> resolved = resolve(f.get());
             if (resolved.feature instanceof OreFeature) {
                 //most ores
@@ -50,21 +69,7 @@ public class BiomeIntercept {
         }
 
         for (Supplier<ConfiguredFeature<?, ?>> f : flagged) {
-            oreFeatures.remove(f);
-        }
-
-        for (ConfiguredFeature<?, ?> f : Features.registeredOres) {
-            gen = (BiomeGenerationSettingsBuilder) gen.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, f);
-        }
-    }
-
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void FMLServerStartedIntercept(FMLServerStartedEvent event) {
-        if (Config.debugOutput && Config.trackedDisabledOres.size() > 0) {
-            Logger.debug("The following ores could not be intercepted:");
-            for(Block k : Config.trackedDisabledOres) {
-                Logger.debug("    " + k.getRegistryName());
-            }
+            features.remove(f);
         }
     }
 
