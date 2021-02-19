@@ -10,6 +10,7 @@ import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartedEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,10 @@ public class BiomeIntercept {
                 if (Config.debugOutput) Logger.debug("Intercepted oregen for " + blockCheck.getRegistryName());
                 if (Config.disabledOres.contains(blockCheck)) {
                     flagged.add(f);
-                    if (Config.debugOutput) Logger.debug("    Flagged for removal");
+                    if (Config.debugOutput) {
+                        Logger.debug("    Flagged for removal");
+                        Config.trackedDisabledOres.remove(blockCheck);
+                    }
                 }
 
             }
@@ -51,6 +55,16 @@ public class BiomeIntercept {
 
         for (ConfiguredFeature<?, ?> f : Features.registeredOres) {
             gen = (BiomeGenerationSettingsBuilder) gen.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, f);
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void FMLServerStartedIntercept(FMLServerStartedEvent event) {
+        if (Config.debugOutput && Config.trackedDisabledOres.size() > 0) {
+            Logger.debug("The following ores could not be intercepted:");
+            for(Block k : Config.trackedDisabledOres) {
+                Logger.debug("    " + k.getRegistryName());
+            }
         }
     }
 
