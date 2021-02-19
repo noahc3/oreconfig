@@ -21,9 +21,19 @@ The "Disable Ores" array is a string array which stores a list of blocks to disa
 
 Note things like andesite, diorite, granite, as well as underground dirt and gravel are also "ores". You can similarly disable those by adding them to that list.
 
-This can also disable ore generation for modded ores, provided those mods use the standard OreFeature or ReplaceBlockFeature world generation features for their ore generation. Simply supply the ID of the modded ore blocks to disable.
+This can also disable ore generation for ores from some mods, provided those mods use the standard vanilla ore generation features for their ore generation. Simply supply the ID of the modded ore blocks to disable. Existing ore generation from the following mods currently cannot be disabled:
 
-This option only disables ore generation not configured by this mod (ex. vanilla/modded ore generation). If you want to define a custom ore that "overrides" the existing ore generation, you need to disable the existing ore generation here first.
+- Astral Sorcery
+- Immersive Engineering
+- Mekanism
+- Mystical Agriculture (soulium ore only)
+- Quark
+- Silent Gems
+- Thermal Series (ruby and sapphire ores only)
+- Undergarden
+- (likely others)
+
+This option only disables existing ore generation not configured by this mod (ex. vanilla/modded ore generation). If you want to define a custom ore that "overrides" the existing ore generation, you need to disable the existing ore generation here first.
 
 #### Custom Ore Generation
 
