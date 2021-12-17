@@ -1,26 +1,26 @@
 modLoader="javafml" #mandatory
 loaderVersion="[35,)"
 license="MIT License"
-issueTrackerURL="https://github.com/noahc3/oretweaker/issues/"
+issueTrackerURL="https://github.com/noahc3/oreconfig/issues/"
 showAsResourcePack=false
 
 [[mods]]
-modId="oretweaker"
+modId="oreconfig"
 version="${file.jarVersion}"
-displayName="OreTweaker"
-displayURL="https://github.com/noahc3/oretweaker"
+displayName="Ore Config"
+displayURL="https://github.com/noahc3/oreconfig"
 logoFile="icon.png"
 authors="noahc3"
 description="Allows you to disable existing ore generation features and add your own."
 
-[[dependencies.oretweaker]]
+[[dependencies.oreconfig]]
     modId="forge"
     mandatory=true
     versionRange="[35,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.oretweaker]]
+[[dependencies.oreconfig]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.4,1.17)"
