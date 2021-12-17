@@ -1,7 +1,7 @@
-package com.noahc3.oretweaker.config;
+package com.noahc3.oreconfig.config;
 
-import com.noahc3.oretweaker.utility.Logger;
-import com.noahc3.oretweaker.world.Features;
+import com.noahc3.oreconfig.utility.Logger;
+import com.noahc3.oreconfig.world.Features;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;

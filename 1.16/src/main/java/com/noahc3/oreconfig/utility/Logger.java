@@ -1,4 +1,4 @@
-package com.noahc3.oretweaker.utility;
+package com.noahc3.oreconfig.utility;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;

@@ -1,4 +1,4 @@
-package com.noahc3.oretweaker.config;
+package com.noahc3.oreconfig.config;
 
 import com.electronwill.nightconfig.core.conversion.Path;
 import com.electronwill.nightconfig.core.conversion.PreserveNotNull;

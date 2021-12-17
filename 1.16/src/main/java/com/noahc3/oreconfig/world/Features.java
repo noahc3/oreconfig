@@ -1,9 +1,9 @@
-package com.noahc3.oretweaker.world;
+package com.noahc3.oreconfig.world;
 
-import com.noahc3.oretweaker.config.Config;
-import com.noahc3.oretweaker.config.CustomOreConfig;
-import com.noahc3.oretweaker.utility.Logger;
-import com.noahc3.oretweaker.utility.Reference;
+import com.noahc3.oreconfig.config.Config;
+import com.noahc3.oreconfig.config.CustomOreConfig;
+import com.noahc3.oreconfig.utility.Logger;
+import com.noahc3.oreconfig.utility.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -12,7 +12,6 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 

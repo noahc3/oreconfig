@@ -16,9 +16,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.1.1'
-group = 'com.noahc3.oretweaker' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'oretweaker'
+version = '1.2.0'
+group = 'com.noahc3.oreconfig' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'oreconfig'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -36,7 +36,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                oretweaker {
+                oreconfig {
                     source sourceSets.main
                 }
             }
@@ -52,7 +52,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                oretweaker {
+                oreconfig {
                     source sourceSets.main
                 }
             }
@@ -68,10 +68,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'oretweaker', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'oreconfig', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                oretweaker {
+                oreconfig {
                     source sourceSets.main
                 }
             }
@@ -88,7 +88,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "oretweaker",
+            "Specification-Title": "oreconfig",
             "Specification-Vendor": "noahc3",
             "Specification-Version": "1",
             "Implementation-Title": project.name,

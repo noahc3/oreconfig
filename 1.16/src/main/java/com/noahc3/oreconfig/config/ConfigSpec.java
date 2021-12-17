@@ -1,7 +1,7 @@
-package com.noahc3.oretweaker.config;
+package com.noahc3.oreconfig.config;
 
 import com.electronwill.nightconfig.core.conversion.ObjectConverter;
-import com.noahc3.oretweaker.utility.Reference;
+import com.noahc3.oreconfig.utility.Reference;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.commons.lang3.tuple.Pair;

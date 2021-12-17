@@ -1,8 +1,8 @@
-package com.noahc3.oretweaker.intercepts;
+package com.noahc3.oreconfig.intercepts;
 
-import com.noahc3.oretweaker.config.Config;
-import com.noahc3.oretweaker.world.Features;
-import com.noahc3.oretweaker.utility.Logger;
+import com.noahc3.oreconfig.config.Config;
+import com.noahc3.oreconfig.world.Features;
+import com.noahc3.oreconfig.utility.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
